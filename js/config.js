@@ -27,5 +27,5 @@ const CONFIG = {
 
   // ---------- Para onde os PEDIDOS do carrinho são enviados ----------
   // WhatsApp do administrador que recebe o resumo do pedido (hoje configurado com o número do Lucas).
-  whatsappAdmin: "5585986107362"
+  whatsappAdmin: "5585991294682"
 };
