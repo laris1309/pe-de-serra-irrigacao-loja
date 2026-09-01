@@ -15,13 +15,13 @@ const CONFIG = {
       nome: "Lucas",
       cargo: "Vendedor",
       whatsapp: "5585991294682",
-      mensagemPadrao: "Olá Lucas! Vim pelo site da Pé de Serra Irrigação e gostaria de tirar uma dúvida."
+      mensagemPadrao: "Olá Lucas! Vim pelo Instagram da Pé de Serra Irrigação e gostaria de tirar uma dúvida."
     },
     erica: {
       nome: "Erica",
       cargo: "Vendedora",
       whatsapp: "5585991294682",
-      mensagemPadrao: "Olá Erica! Vim pelo site da Pé de Serra Irrigação e gostaria de tirar uma dúvida."
+      mensagemPadrao: "Olá Erica! Vim pelo Instagram da Pé de Serra Irrigação e gostaria de tirar uma dúvida."
     }
   },
 
