@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falar com Erica - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <a href="menu.html" class="voltar">←</a>
+  <h1>Falar com Erica</h1>
+</header>
+
+<main class="container">
+  <div class="cartao cartao-vendedor">
+    <div class="avatar-vendedor avatar-verde">👩‍🔧</div>
+    <h2 id="nome-vendedor">Erica</h2>
+    <p class="cargo">Vendedora - Pé de Serra Irrigação</p>
+    <p>Dúvidas sobre produtos, prazos ou disponibilidade? Chama a Erica direto no WhatsApp que ela te ajuda rapidinho!</p>
+    <button id="botao-whatsapp" class="botao botao-whatsapp botao-bloco">💬 Chamar no WhatsApp</button>
+  </div>
+</main>
+
+<div class="rodape">Pé de Serra Irrigação • Maranguape - CE</div>
+
+<script src="js/guard.js"></script>
+<script src="js/config.js"></script>
+<script>
+  const vendedor = CONFIG.vendedores.erica;
+  document.getElementById("botao-whatsapp").addEventListener("click", function () {
+    const texto = encodeURIComponent(vendedor.mensagemPadrao);
+    window.open("https://wa.me/" + vendedor.whatsapp + "?text=" + texto, "_blank");
+  });
+</script>
+</body>
+</html>

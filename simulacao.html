@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Irrigação - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <a href="menu.html" class="voltar">←</a>
+  <h1>Simulador de Irrigação</h1>
+</header>
+
+<main class="container">
+  <div class="aviso">
+    💧 Preencha os dados da sua plantação e a gente te dá uma <strong>estimativa inicial</strong> de vazão, sistema e tubulação. É só um ponto de partida — um vendedor confirma os detalhes com você depois.
+  </div>
+
+  <div class="cartao">
+    <form id="form-simulacao">
+      <div class="campo">
+        <label for="cultura">O que você vai plantar/irrigar?</label>
+        <select id="cultura" required></select>
+      </div>
+
+      <div class="campo">
+        <label for="area">Área a ser irrigada (em m²)</label>
+        <input type="number" id="area" name="area" placeholder="Ex: 100" min="1" step="0.1" required>
+      </div>
+
+      <div class="campo">
+        <label for="solo">Tipo de solo</label>
+        <select id="solo" required></select>
+      </div>
+
+      <div class="campo">
+        <label for="declividade">Como é o terreno?</label>
+        <select id="declividade" required></select>
+      </div>
+
+      <div class="campo">
+        <label for="horas">Quantas horas por dia você pretende irrigar?</label>
+        <input type="number" id="horas" name="horas" placeholder="Ex: 2" min="0.5" step="0.5" value="2" required>
+      </div>
+
+      <button type="submit" class="botao botao-primario botao-bloco">Calcular estimativa</button>
+    </form>
+  </div>
+
+  <div id="resultado-simulacao" style="display:none;"></div>
+</main>
+
+<div class="rodape">Pé de Serra Irrigação • Maranguape - CE</div>
+
+<script src="js/guard.js"></script>
+<script src="js/config.js"></script>
+<script src="js/regras.js"></script>
+<script src="js/simulacao.js"></script>
+</body>
+</html>

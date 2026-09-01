@@ -1,0 +1,7 @@
+vazao_maxima_lh,diametro_sugerido_mm,observacao
+1000,20,"Sistemas pequenos (EXEMPLO - validar com equipe técnica)"
+2000,25,"Sistemas pequenos/médios (EXEMPLO - validar com equipe técnica)"
+4000,32,"Sistemas médios (EXEMPLO - validar com equipe técnica)"
+8000,40,"Sistemas médios/grandes (EXEMPLO - validar com equipe técnica)"
+15000,50,"Sistemas grandes (EXEMPLO - validar com equipe técnica)"
+999999999,0,"Vazão alta - recomendável um projeto técnico personalizado com um vendedor"

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pé de Serra Irrigação - Autoatendimento</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="tela-boas-vindas">
+  <div class="caixa-cadastro">
+    <div class="icone-topo">🌱💧</div>
+    <h1>Pé de Serra Irrigação</h1>
+    <p class="legenda">Bem-vindo(a) ao nosso autoatendimento! Preencha rapidinho seus dados pra começar a dar uma olhada nos produtos.</p>
+
+    <form id="form-cadastro" novalidate>
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Ex: Maria" autocomplete="given-name">
+        <span class="erro-texto">Digite seu nome</span>
+      </div>
+
+      <div class="campo">
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Souza" autocomplete="family-name">
+        <span class="erro-texto">Digite seu sobrenome</span>
+      </div>
+
+      <div class="campo">
+        <label for="whatsapp">WhatsApp (com DDD)</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: (85) 99999-9999" inputmode="numeric" autocomplete="tel">
+        <span class="erro-texto">Digite um WhatsApp válido, com DDD</span>
+      </div>
+
+      <button type="submit" class="botao botao-primario botao-bloco">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="rodape">Seus dados são usados só pra gente te atender melhor 🙂</div>
+
+<script src="js/cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+/* ===========================================================
+   Pé de Serra Irrigação - Autoatendimento
+   Cores e fonte da marca
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+:root {
+  /* Água / irrigação */
+  --cor-primaria: #1B98E0;
+  --cor-primaria-escura: #157bb8;
+  /* Elétrica / ferragens */
+  --cor-secundaria: #FFD166;
+  --cor-secundaria-escura: #e6b849;
+  /* Jardinagem */
+  --cor-verde: #3FA34D;
+  --cor-verde-escura: #2F7D3B;
+  --cor-verde-clara: #eaf5ec;
+  --cor-ambar-clara: #fff3d9;
+  --cor-azul-clara: #e7f4fc;
+
+  --cor-fundo: #F7F3E3;
+  --cor-texto: #2b2b2b;
+  --cor-texto-claro: #6b6b6b;
+  --cor-branco: #ffffff;
+  --cor-erro: #d64545;
+  --cor-sucesso: #2F7D3B;
+  --sombra: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --raio: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Barlow', system-ui, -apple-system, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  background: linear-gradient(120deg, var(--cor-primaria) 0%, var(--cor-verde) 100%);
+  color: var(--cor-branco);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topo .voltar {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.topo .voltar:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.topo h1 {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.topo .subtitulo {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  display: block;
+  font-weight: 400;
+}
+
+.logo-emoji {
+  font-size: 1.6rem;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+
+.botao:active {
+  transform: scale(0.97);
+}
+
+.botao-primario {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+.botao-primario:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.botao-secundario {
+  background-color: var(--cor-secundaria);
+  color: #4a3800;
+}
+
+.botao-secundario:hover {
+  background-color: var(--cor-secundaria-escura);
+}
+
+.botao-whatsapp {
+  background-color: #25D366;
+  color: var(--cor-branco);
+}
+
+.botao-fantasma {
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.botao-bloco {
+  width: 100%;
+  display: flex;
+}
+
+.botao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Cartões ---------- */
+.cartao {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Formulários ---------- */
+.campo {
+  margin-bottom: 16px;
+}
+
+.campo label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e6e0cc;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--cor-branco);
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.campo .erro-texto {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: none;
+}
+
+.campo.invalido input {
+  border-color: var(--cor-erro);
+}
+
+.campo.invalido .erro-texto {
+  display: block;
+}
+
+/* ---------- Tela de cadastro ---------- */
+.tela-boas-vindas {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.caixa-cadastro {
+  background: var(--cor-branco);
+  border-radius: 24px;
+  box-shadow: var(--sombra);
+  padding: 32px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.caixa-cadastro .icone-topo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-verde) 65%, var(--cor-secundaria) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  box-shadow: var(--sombra);
+}
+
+.caixa-cadastro h1 {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+}
+
+.caixa-cadastro p.legenda {
+  color: var(--cor-texto-claro);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.caixa-cadastro form {
+  text-align: left;
+}
+
+/* ---------- Menu principal ---------- */
+.saudacao {
+  margin: 8px 0 20px;
+}
+
+.saudacao h2 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+
+.saudacao p {
+  margin: 0;
+  color: var(--cor-texto-claro);
+}
+
+.grade-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.cartao-menu {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 140px;
+  justify-content: center;
+}
+
+.cartao-menu .icone {
+  font-size: 2.2rem;
+}
+
+.cartao-menu span {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 1.02rem;
+}
+
+.cartao-menu:active {
+  transform: scale(0.97);
+}
+
+.cartao-menu.destaque {
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+.cartao-menu.destaque-verde {
+  background: linear-gradient(120deg, var(--cor-primaria) 0%, var(--cor-verde) 100%);
+  color: var(--cor-branco);
+}
+
+.cartao-menu.destaque-ambar {
+  background: linear-gradient(120deg, var(--cor-primaria) 0%, var(--cor-secundaria-escura) 100%);
+  color: var(--cor-branco);
+}
+
+.cartao-menu.cor-ambar {
+  background: var(--cor-ambar-clara);
+  border: 2px solid var(--cor-secundaria);
+}
+
+.cartao-menu.cor-ambar .icone {
+  filter: none;
+}
+
+.cartao-menu.cor-verde {
+  background: var(--cor-verde-clara);
+  border: 2px solid var(--cor-verde);
+}
+
+.cartao-menu.cor-azul {
+  background: var(--cor-azul-clara);
+  border: 2px solid var(--cor-primaria);
+}
+
+.link-trocar {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  color: var(--cor-texto-claro);
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+/* ---------- Abas do catálogo ---------- */
+.abas {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  margin-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.abas::-webkit-scrollbar {
+  height: 4px;
+}
+
+.aba-botao {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--cor-primaria);
+  background: var(--cor-branco);
+  color: var(--cor-primaria);
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.aba-botao.ativa {
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+/* ---------- Cardápio de produtos ---------- */
+.lista-produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 100px;
+}
+
+.item-produto {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-produto .info h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.item-produto .info .preco {
+  color: var(--cor-primaria-escura);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.item-produto .info .unidade {
+  color: var(--cor-texto-claro);
+  font-size: 0.8rem;
+}
+
+.seletor-qtd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.seletor-qtd button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cor-fundo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+.seletor-qtd button.adicionar {
+  background: var(--cor-secundaria);
+  color: #4a3800;
+}
+
+.seletor-qtd .qtd {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ---------- Carrinho flutuante ---------- */
+.barra-carrinho {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  max-width: 688px;
+  margin: 0 auto;
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  border-radius: 999px;
+  padding: 14px 20px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 60;
+  font-weight: 700;
+}
+
+.barra-carrinho.visivel {
+  display: flex;
+}
+
+.painel-carrinho {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.painel-carrinho.aberto {
+  display: flex;
+}
+
+.painel-carrinho-conteudo {
+  background: var(--cor-fundo);
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  border-radius: 24px 24px 0 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.painel-carrinho-conteudo h2 {
+  margin-top: 0;
+}
+
+.linha-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cor-branco);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.linha-carrinho .nome {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.linha-carrinho .detalhe {
+  color: var(--cor-texto-claro);
+  font-size: 0.82rem;
+}
+
+.linha-carrinho .remover {
+  background: none;
+  border: none;
+  color: var(--cor-erro);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.lista-itens-perifericos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-itens-perifericos li {
+  background: var(--cor-fundo);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.lista-itens-perifericos .unidade {
+  color: var(--cor-texto-claro);
+  font-size: 0.78rem;
+}
+
+.linha-resultado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e6e0cc;
+  font-size: 0.92rem;
+}
+
+.linha-resultado:last-of-type {
+  border-bottom: none;
+}
+
+.linha-resultado span {
+  color: var(--cor-texto-claro);
+}
+
+.linha-resultado strong {
+  text-align: right;
+}
+
+.total-carrinho {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 16px 0;
+  padding-top: 12px;
+  border-top: 2px dashed #d9d2b8;
+}
+
+.carrinho-vazio {
+  text-align: center;
+  color: var(--cor-texto-claro);
+  padding: 30px 0;
+}
+
+/* ---------- Tela de sucesso ---------- */
+.tela-sucesso {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tela-sucesso .icone {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.tela-sucesso .numero-pedido {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cor-primaria-escura);
+  margin: 6px 0 20px;
+}
+
+.acoes-sucesso {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ---------- Página de vendedor ---------- */
+.cartao-vendedor {
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.avatar-vendedor {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--cor-secundaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  margin: 0 auto 14px;
+}
+
+.avatar-vendedor.avatar-verde {
+  background: var(--cor-verde);
+}
+
+.cartao-vendedor h2 {
+  margin: 0 0 4px;
+}
+
+.cartao-vendedor .cargo {
+  color: var(--cor-texto-claro);
+  margin-bottom: 20px;
+}
+
+/* ---------- Manuais ---------- */
+.item-manual {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.item-manual .icone-pdf {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.item-manual .texto {
+  flex: 1;
+}
+
+.item-manual .texto h3 {
+  margin: 0 0 2px;
+  font-size: 0.95rem;
+}
+
+.item-manual .texto p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--cor-texto-claro);
+}
+
+.item-manual .botao {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.aviso {
+  background: #fff6df;
+  border: 2px dashed var(--cor-secundaria-escura);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: #6b5300;
+  margin-bottom: 16px;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.78rem;
+  color: var(--cor-texto-claro);
+}
+
+@media (min-width: 600px) {
+  .grade-menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

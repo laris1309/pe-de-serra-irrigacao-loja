@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <a href="menu.html" class="voltar">←</a>
+  <h1>Catálogo e Orçamento</h1>
+</header>
+
+<main class="container">
+  <div class="abas" id="abas"></div>
+  <div class="lista-produtos" id="lista-produtos"></div>
+</main>
+
+<div class="barra-carrinho" id="barra-carrinho">
+  <span id="resumo-carrinho">0 itens</span>
+  <span id="resumo-total">R$ 0,00</span>
+</div>
+
+<div class="painel-carrinho" id="painel-carrinho">
+  <div class="painel-carrinho-conteudo">
+    <div id="painel-carrinho-corpo">
+      <h2>Seu orçamento</h2>
+      <div id="itens-painel-carrinho"></div>
+      <div class="total-carrinho">
+        <span>Total</span>
+        <span id="total-painel-carrinho">R$ 0,00</span>
+      </div>
+      <button id="botao-finalizar" class="botao botao-primario botao-bloco">Finalizar pedido</button>
+      <button id="fechar-painel" class="botao botao-fantasma botao-bloco" style="margin-top:10px;">Continuar comprando</button>
+    </div>
+
+    <div id="tela-sucesso" class="tela-sucesso" style="display:none;">
+      <div class="icone">✅</div>
+      <h2>Pedido enviado!</h2>
+      <p class="numero-pedido" id="texto-numero-pedido"></p>
+      <p>Falta só um toque pra confirmar o envio no WhatsApp:</p>
+      <div class="acoes-sucesso">
+        <button id="botao-whatsapp-admin" class="botao botao-whatsapp botao-bloco">💬 Enviar pedido pro vendedor</button>
+        <button id="botao-whatsapp-cliente" class="botao botao-secundario botao-bloco">📩 Receber confirmação no meu WhatsApp</button>
+        <button id="botao-novo-pedido" class="botao botao-fantasma botao-bloco">Fazer novo orçamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/guard.js"></script>
+<script src="js/config.js"></script>
+<script src="js/produtos.js"></script>
+<script src="js/carrinho.js"></script>
+<script src="js/pedido.js"></script>
+<script src="js/catalogo.js"></script>
+</body>
+</html>

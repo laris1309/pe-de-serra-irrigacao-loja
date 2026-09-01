@@ -1,0 +1,10 @@
+condicao,item,observacao
+sempre,Relé de nível (boia elétrica),"Protege a bomba contra funcionamento a seco - recomendado em todos os poços"
+sempre,Quadro de comando e proteção da bomba,"Abriga contator/térmico e demais proteções (EXEMPLO - validar com equipe técnica)"
+sempre,Válvula de retenção,"Evita retorno de água pela tubulação (EXEMPLO - validar com equipe técnica)"
+sempre,Registro de esfera,"Permite isolar a linha para manutenção (EXEMPLO - validar com equipe técnica)"
+sempre,Abraçadeiras para fixar o cabo elétrico na tubulação,"Aproximadamente uma a cada barra de tubo (EXEMPLO - validar com equipe técnica)"
+sempre,Cabo elétrico na bitola calculada,"Confirmar a bitola com um eletricista conforme a NBR 5410"
+sempre,Tampa sanitária do poço,"Veda a boca do poço e evita contaminação (EXEMPLO - validar com equipe técnica)"
+trifasico,Quadro elétrico com relé de falta de fase,"Recomendado para redes trifásicas: protege o motor contra queima por falta de fase"
+monofasico,Capacitor de partida,"Verificar necessidade conforme o modelo específico da bomba (EXEMPLO - validar com equipe técnica)"

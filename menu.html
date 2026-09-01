@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <span class="logo-emoji">🌱</span>
+  <h1>Pé de Serra Irrigação
+    <span class="subtitulo">Autoatendimento</span>
+  </h1>
+</header>
+
+<main class="container">
+  <div class="saudacao">
+    <h2 id="texto-saudacao">Olá!</h2>
+    <p>O que você precisa hoje?</p>
+  </div>
+
+  <div class="grade-menu">
+    <a href="catalogo.html" class="cartao-menu destaque">
+      <span class="icone">🛒</span>
+      <span>Catálogo e Orçamento</span>
+    </a>
+
+    <a href="simulacao.html" class="cartao-menu destaque-verde">
+      <span class="icone">📐</span>
+      <span>Simulador de Irrigação</span>
+    </a>
+
+    <a href="dimensionamento-poco.html" class="cartao-menu destaque-ambar">
+      <span class="icone">⚡</span>
+      <span>Bomba e Poço</span>
+    </a>
+
+    <a href="vendedor-lucas.html" class="cartao-menu cor-ambar">
+      <span class="icone">🧑‍🔧</span>
+      <span>Falar com Lucas</span>
+    </a>
+
+    <a href="vendedora-erica.html" class="cartao-menu cor-verde">
+      <span class="icone">👩‍🔧</span>
+      <span>Falar com Erica</span>
+    </a>
+
+    <a href="manuais.html" class="cartao-menu cor-azul">
+      <span class="icone">📘</span>
+      <span>Manuais das Máquinas</span>
+    </a>
+  </div>
+
+  <a href="#" class="link-trocar" onclick="sairDoCadastro(); return false;">Não sou eu / trocar dados</a>
+</main>
+
+<div class="rodape">Pé de Serra Irrigação • Maranguape - CE</div>
+
+<script src="js/guard.js"></script>
+<script>
+  const cliente = obterCliente();
+  if (cliente) {
+    document.getElementById("texto-saudacao").textContent = "Olá, " + cliente.nome + "!";
+  }
+</script>
+</body>
+</html>

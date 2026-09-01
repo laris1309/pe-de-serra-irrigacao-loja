@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuais - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .secao-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 24px 0 10px;
+  }
+  .secao-titulo .linha {
+    flex: 1;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.25;
+  }
+  .secao-titulo span {
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .secao-azul    { color: var(--cor-primaria-escura); }
+
+  .badge-externo {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--cor-texto-claro);
+    border-radius: 6px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-pdf {
+    background: var(--cor-verde-escura);
+  }
+
+  .botao-verde {
+    background-color: var(--cor-verde);
+    color: #fff;
+  }
+  .botao-verde:hover, .botao-verde:active {
+    background-color: var(--cor-verde-escura);
+  }
+
+  .item-manual .texto h3 { font-size: 0.92rem; }
+  .item-manual .texto .modelo {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a href="menu.html" class="voltar">←</a>
+  <h1>Manuais das Máquinas</h1>
+</header>
+
+<main class="container">
+  <div class="aviso">
+    📌 Os manuais abrem diretamente no site da Famac. Precisa de internet. Salve o PDF no celular pra consultar offline.
+  </div>
+
+  <!-- ===== BOMBAS FAMAC ===== -->
+  <div class="secao-titulo secao-azul">
+    <div class="linha"></div>
+    <span>💧 Bombas — Famac</span>
+    <div class="linha"></div>
+  </div>
+
+  <div class="item-manual">
+    <div class="icone-pdf" style="font-size:1.5rem">📋</div>
+    <div class="texto">
+      <div class="modelo">Famac · Apostila</div>
+      <h3>Apostila de Treinamento Famac <span class="badge-externo badge-pdf">PDF</span></h3>
+      <p>Hidráulica básica, seleção e instalação de motobombas</p>
+    </div>
+    <a class="botao botao-primario"
+       href="https://www.famac.ind.br/wp-content/uploads/2021/02/Apostila-Basica-Educa-Famac.pdf"
+       target="_blank" rel="noopener">PDF</a>
+  </div>
+
+  <div class="item-manual">
+    <div class="icone-pdf">📄</div>
+    <div class="texto">
+      <div class="modelo">Famac · Catálogo</div>
+      <h3>Catálogo de Produtos Famac <span class="badge-externo">Site</span></h3>
+      <p>Todas as linhas: FGN, FBZ, FNI, FMG e mais</p>
+    </div>
+    <a class="botao botao-primario"
+       href="https://www.famac.ind.br/catalogo-de-produtos/"
+       target="_blank" rel="noopener">Ver</a>
+  </div>
+
+  <div class="item-manual">
+    <div class="icone-pdf">🔍</div>
+    <div class="texto">
+      <div class="modelo">Famac · Assistência</div>
+      <h3>Consultar Informações do Produto <span class="badge-externo">Site</span></h3>
+      <p>Busca por número de série ou código — peças e esquemas</p>
+    </div>
+    <a class="botao botao-primario"
+       href="https://www.famac.ind.br/informacoes-produto/"
+       target="_blank" rel="noopener">Ver</a>
+  </div>
+
+  <div class="item-manual">
+    <div class="icone-pdf">⚙️</div>
+    <div class="texto">
+      <div class="modelo">Famac · Dimensionador</div>
+      <h3>Dimensionador de Motobombas <span class="badge-externo">Site</span></h3>
+      <p>Ferramenta online pra escolher a bomba certa pelo projeto</p>
+    </div>
+    <a class="botao botao-primario"
+       href="https://dimensionador.famac.ind.br/cgi-bin/sistema?emp=0def2ae2-c775-47ff-9a19-cb66031ca50e"
+       target="_blank" rel="noopener">Abrir</a>
+  </div>
+
+  <div class="item-manual">
+    <div class="icone-pdf">🛠️</div>
+    <div class="texto">
+      <div class="modelo">Famac · Suporte</div>
+      <h3>Assistência Técnica Famac <span class="badge-externo">Site</span></h3>
+      <p>Localizar técnico, falar com coordenador, solicitar suporte</p>
+    </div>
+    <a class="botao botao-primario"
+       href="https://www.famac.ind.br/assistencia-tecnica-o-que-deseja/"
+       target="_blank" rel="noopener">Ver</a>
+  </div>
+
+</main>
+
+<div class="rodape">Pé de Serra Irrigação • Maranguape - CE</div>
+
+<script src="js/guard.js"></script>
+</body>
+</html>

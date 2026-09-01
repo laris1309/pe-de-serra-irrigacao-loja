@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimensionamento de Bomba e Poço - Pé de Serra Irrigação</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <a href="menu.html" class="voltar">←</a>
+  <h1>Bomba e Poço</h1>
+</header>
+
+<main class="container">
+  <div class="aviso">
+    ⚡💧 Preencha os dados do seu poço e a gente te dá uma <strong>estimativa inicial</strong> de potência da bomba, tubulação, cabo elétrico e itens necessários. Um vendedor confirma tudo com você depois — instalação elétrica sempre por um eletricista qualificado.
+  </div>
+
+  <div class="cartao">
+    <form id="form-poco">
+      <div class="campo">
+        <label for="vazao">Vazão desejada (litros por hora)</label>
+        <input type="number" id="vazao" name="vazao" placeholder="Ex: 2000" min="1" step="1" required>
+      </div>
+
+      <div class="campo">
+        <label for="profundidade">Profundidade do poço / nível dinâmico da água (m)</label>
+        <input type="number" id="profundidade" name="profundidade" placeholder="Ex: 30" min="0.5" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="altura-recalque">Altura de recalque até a caixa d'água (m)</label>
+        <input type="number" id="altura-recalque" name="altura-recalque" placeholder="Ex: 5" min="0" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="distancia-horizontal">Distância horizontal da tubulação (m)</label>
+        <input type="number" id="distancia-horizontal" name="distancia-horizontal" placeholder="Ex: 10" min="0" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="distancia-quadro">Distância da bomba até o quadro de energia (m)</label>
+        <input type="number" id="distancia-quadro" name="distancia-quadro" placeholder="Ex: 15" min="0" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="tipo-rede">Tipo de rede elétrica</label>
+        <select id="tipo-rede" required>
+          <option value="">Selecione...</option>
+          <option value="Monofásica">Monofásica</option>
+          <option value="Trifásica">Trifásica</option>
+        </select>
+      </div>
+
+      <button type="submit" class="botao botao-primario botao-bloco">Calcular estimativa</button>
+    </form>
+  </div>
+
+  <div id="resultado-poco" style="display:none;"></div>
+</main>
+
+<div class="rodape">Pé de Serra Irrigação • Maranguape - CE</div>
+
+<script src="js/guard.js"></script>
+<script src="js/config.js"></script>
+<script src="js/regras_poco.js"></script>
+<script src="js/dimensionamento-poco.js"></script>
+</body>
+</html>
