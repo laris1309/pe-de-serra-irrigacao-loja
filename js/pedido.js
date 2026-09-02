@@ -1,7 +1,8 @@
 /* ===========================================================
-   Envio do pedido:
-   1) Gera o número do pedido
-   2) Abre o WhatsApp do administrador com o pedido pronto pra enviar
+   Envio da lista de produtos:
+   1) Gera o número da solicitação
+   2) Abre o WhatsApp do administrador com a lista pronta pra enviar,
+      pra ele montar o orçamento com os valores
    3) Abre o WhatsApp do próprio cliente com a confirmação pronta pra enviar
 
    Sobre o WhatsApp: por segurança, o WhatsApp não deixa nenhum site
@@ -36,27 +37,26 @@ function formatarDataHora(data) {
 
 function montarListaItensTexto(carrinho) {
   return carrinho
-    .map((item) => `- ${item.quantidade}x ${item.nome} (${formatarMoeda(item.preco)} cada)`)
+    .map((item) => `- ${item.quantidade}x ${item.nome}`)
     .join("\n");
 }
 
-function montarMensagemAdmin({ numeroPedido, cliente, dataHora, itensTexto, valorTotal }) {
+function montarMensagemAdmin({ numeroPedido, cliente, dataHora, itensTexto }) {
   return (
-    `Número do pedido: ${numeroPedido}\n` +
+    `Número da solicitação: ${numeroPedido}\n` +
     `Nome do cliente: ${cliente.nome} ${cliente.sobrenome}\n` +
     `Contato do cliente: ${cliente.whatsapp}\n` +
-    `Data e hora do pedido: ${dataHora}\n` +
-    `Itens do pedido:\n${itensTexto}\n` +
-    `Valor total: ${formatarMoeda(valorTotal)}`
+    `Data e hora: ${dataHora}\n` +
+    `Produtos solicitados:\n${itensTexto}`
   );
 }
 
-function montarMensagemCliente({ numeroPedido, itensTexto, valorTotal }) {
+function montarMensagemCliente({ numeroPedido, itensTexto }) {
   return (
-    `Seu pedido foi enviado para a equipe Pé de Serra Irrigação\n` +
-    `Número do pedido: ${numeroPedido}\n` +
-    `Itens do pedido:\n${itensTexto}\n` +
-    `Valor total: ${formatarMoeda(valorTotal)}`
+    `Sua lista foi enviada para a equipe Pé de Serra Irrigação\n` +
+    `Número da solicitação: ${numeroPedido}\n` +
+    `Produtos solicitados:\n${itensTexto}\n` +
+    `Em breve um vendedor te manda o orçamento com os valores.`
   );
 }
 
@@ -69,9 +69,8 @@ function finalizarPedido(cliente, carrinho) {
   const numeroPedido = gerarNumeroPedido();
   const dataHora = formatarDataHora(new Date());
   const itensTexto = montarListaItensTexto(carrinho);
-  const valorTotal = totalValorCarrinho();
 
-  const dadosPedido = { numeroPedido, cliente, dataHora, itensTexto, valorTotal };
+  const dadosPedido = { numeroPedido, cliente, dataHora, itensTexto };
 
   const mensagemAdmin = montarMensagemAdmin(dadosPedido);
   const mensagemCliente = montarMensagemCliente(dadosPedido);
