@@ -83,7 +83,9 @@ O catálogo **não mostra preço** — ele serve só pra o cliente montar a list
    ```
 6. Isso vai atualizar o arquivo `js/produtos.js` sozinho. Suba os dois arquivos (`data/produtos.csv` e `js/produtos.js`) de novo no GitHub (passo 2.3)
 
-**Sobre as categorias (abas):** os 451 produtos reais da loja foram importados da planilha de mercadorias, mas todos entraram numa categoria só, **"Todos os produtos"** — a planilha original não tinha a categoria de cada item preenchida. Quando tiver tempo, você pode reorganizar isso: edite a coluna `categoria` no `data/produtos.csv`, trocando "Todos os produtos" pela categoria certa de cada linha (ex: Jardinagem, Material elétrico, Bombas d'água, Tubos e conexões, Mangueiras, Piscina, Peças, Parafusos e ferragens — ou outras categorias que preferir), depois rode o script de novo (passo 5 acima).
+**Sobre as categorias (abas):** os produtos reais da loja foram importados da planilha de mercadorias e organizados automaticamente por palavra-chave do nome em **12 categorias**: Bombas e Motobombas, Peças e Acessórios de Bomba, Tubos/Conexões/Registros, Válvulas, Mangueiras, Máquinas a Gasolina/Elétrica, Peças de Máquinas a Gasolina, Ferramentas Manuais e Acessórios, Material Elétrico, Jardim e EPI, Piscina, Parafusos e Fixação.
+
+Como a categorização foi automática (por palavra-chave no nome), **cerca de 72 produtos com nomes muito técnicos ficaram de fora do catálogo** (ex: códigos de peça que não davam pra reconhecer com segurança, tipo `INJETOR CARB ST FS85/HS80`). Se quiser adicionar algum desses de volta, é só incluir a linha no `data/produtos.csv` com a categoria certa e rodar o script de novo (passo 5 acima). Da mesma forma, se algum item ficou na categoria errada, é só corrigir a coluna `categoria` na linha dele.
 
 ---
 
