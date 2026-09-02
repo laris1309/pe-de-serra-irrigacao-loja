@@ -44,14 +44,18 @@ CAMINHO_SAIDA = os.path.join(PASTA_RAIZ, "js", "produtos.js")
 # Ordem em que as categorias (abas) devem aparecer no site.
 # O texto precisa ser IDÊNTICO ao usado na coluna "categoria" do CSV.
 ORDEM_CATEGORIAS = [
-    "Jardinagem",
-    "Material elétrico",
-    "Bombas d'água",
-    "Tubos e conexões",
+    "Bombas e Motobombas",
+    "Peças e Acessórios de Bomba",
+    "Tubos, Conexões e Registros",
+    "Válvulas",
     "Mangueiras",
+    "Máquinas a Gasolina/Elétrica",
+    "Peças de Máquinas a Gasolina",
+    "Ferramentas Manuais e Acessórios",
+    "Material Elétrico",
+    "Jardim e EPI",
     "Piscina",
-    "Peças",
-    "Parafusos e ferragens",
+    "Parafusos e Fixação",
 ]
 
 
