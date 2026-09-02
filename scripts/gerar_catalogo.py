@@ -7,14 +7,17 @@ O QUE ESTE SCRIPT FAZ, EM PALAVRAS SIMPLES:
 
 Você edita a "planilha" data/produtos.csv (pode abrir e editar
 no Excel, Google Sheets ou até no Bloco de Notas) colocando o
-nome e o preço de cada produto, separados por categoria.
+nome de cada produto, separado por categoria. Não tem preço —
+o catálogo aqui serve só pra o cliente montar a lista do que
+precisa; quem monta o orçamento com valores é o vendedor, pelo
+WhatsApp.
 
 Depois roda este script, e ele transforma essa planilha no
 arquivo js/produtos.js, que é o arquivo que o site realmente
 usa para mostrar o catálogo pros clientes.
 
 Ou seja: você NUNCA precisa mexer em código para atualizar
-preços ou produtos. Só edita o CSV e roda o script de novo.
+os produtos. Só edita o CSV e roda o script de novo.
 
 COMO USAR (passo a passo está também no README.md):
 
@@ -52,16 +55,6 @@ ORDEM_CATEGORIAS = [
 ]
 
 
-def converter_preco(texto_preco):
-    """Aceita preço com vírgula (12,50) ou ponto (12.50) e devolve número."""
-    texto_preco = texto_preco.strip().replace("R$", "").strip()
-    texto_preco = texto_preco.replace(".", "").replace(",", ".") if "," in texto_preco else texto_preco
-    try:
-        return round(float(texto_preco), 2)
-    except ValueError:
-        raise ValueError(f'Não consegui entender o preço "{texto_preco}". Use algo como 19.90 ou 19,90.')
-
-
 def ler_produtos(caminho_csv):
     if not os.path.exists(caminho_csv):
         print(f"❌ Não encontrei o arquivo: {caminho_csv}")
@@ -73,30 +66,22 @@ def ler_produtos(caminho_csv):
     with open(caminho_csv, newline="", encoding="utf-8") as arquivo:
         leitor = csv.DictReader(arquivo)
 
-        colunas_esperadas = {"categoria", "nome", "preco"}
+        colunas_esperadas = {"categoria", "nome"}
         if not colunas_esperadas.issubset(set(leitor.fieldnames or [])):
-            print("❌ O arquivo CSV precisa ter as colunas: categoria, nome, preco")
+            print("❌ O arquivo CSV precisa ter as colunas: categoria, nome")
             print(f"   Encontrei estas colunas: {leitor.fieldnames}")
             sys.exit(1)
 
         for numero_linha, linha in enumerate(leitor, start=2):
             categoria = (linha.get("categoria") or "").strip()
             nome = (linha.get("nome") or "").strip()
-            preco_texto = (linha.get("preco") or "").strip()
 
-            if not categoria or not nome or not preco_texto:
+            if not categoria or not nome:
                 print(f"⚠️  Linha {numero_linha} incompleta, foi ignorada: {linha}")
                 continue
 
-            try:
-                preco = converter_preco(preco_texto)
-            except ValueError as erro:
-                print(f"⚠️  Linha {numero_linha}: {erro} — item ignorado.")
-                continue
-
             produtos_por_categoria.setdefault(categoria, []).append({
-                "nome": nome,
-                "preco": preco
+                "nome": nome
             })
 
     return produtos_por_categoria
