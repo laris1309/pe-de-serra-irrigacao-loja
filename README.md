@@ -8,9 +8,9 @@ Um site simples pra você colocar no WhatsApp, Instagram ou onde quiser, e o cli
 
 1. Preenche nome, sobrenome e WhatsApp
 2. Cai num menu com 6 opções: **Catálogo**, **Simulador de Irrigação**, **Bomba e Poço**, **Falar com Lucas**, **Falar com Erica** e **Manuais das Máquinas**
-3. No catálogo, monta um orçamento tipo cardápio (separado em abas: Jardinagem, Material elétrico, Bombas d'água, Tubos e conexões, Mangueiras, Piscina, Peças, Parafusos e ferragens)
-4. Ao finalizar, abre o WhatsApp já com a mensagem do pedido pronta pra vocês (só falta o cliente apertar "enviar")
-5. O cliente também recebe, no WhatsApp dele, uma confirmação do pedido pronta pra enviar como comprovante
+3. No catálogo, monta uma **lista dos produtos que precisa** (sem preço — é só pra separar o que ele quer, tipo lista de compras)
+4. Ao finalizar, abre o WhatsApp já com a lista pronta pra vocês (só falta o cliente apertar "enviar") — daí é o vendedor que monta o orçamento com os valores, pelo próprio WhatsApp
+5. O cliente também recebe, no WhatsApp dele, uma confirmação da lista pronta pra enviar como comprovante
 
 **Importante sobre o WhatsApp:** por regra do próprio WhatsApp, nenhum site consegue mandar mensagem sozinho, 100% automático, sem custo. O que fizemos aqui é o melhor caminho gratuito: a mensagem já sai pronta, escrita, no número certo — falta só 1 toque em "enviar". Isso é o que a grande maioria das lojas pequenas usa.
 
@@ -68,15 +68,13 @@ Acesse [github.com](https://github.com) e crie uma conta gratuita, se ainda não
 
 ---
 
-## Passo 3 — Editar produtos e preços (o "cardápio")
+## Passo 3 — Editar produtos e categorias (o catálogo)
 
-Você **não precisa mexer em código** pra isso.
+O catálogo **não mostra preço** — ele serve só pra o cliente montar a lista do que precisa. Quem monta o orçamento com os valores é o vendedor, direto no WhatsApp, depois que a lista chega. Você **não precisa mexer em código** pra editar os produtos.
 
 1. Abra o arquivo `data/produtos.csv` no Excel, Google Sheets ou Bloco de Notas
-2. Cada linha é um produto, com 3 colunas: `categoria`, `nome`, `preco`
-   - A categoria precisa ser uma dessas: Jardinagem, Material elétrico, Bombas d'água, Tubos e conexões, Mangueiras, Piscina, Peças, Parafusos e ferragens
+2. Cada linha é um produto, com 2 colunas: `categoria`, `nome`
    - Se o nome do produto tiver vírgula (ex: "2,5mm"), coloque o nome inteiro entre aspas: `"Fio 2,5mm"`
-   - O preço pode ser com ponto ou vírgula: `19.90` ou `19,90`
 3. Adicione, remova ou edite as linhas que quiser
 4. Salve o arquivo (mantendo o formato CSV)
 5. Rode o script Python que atualiza o site:
@@ -85,7 +83,7 @@ Você **não precisa mexer em código** pra isso.
    ```
 6. Isso vai atualizar o arquivo `js/produtos.js` sozinho. Suba os dois arquivos (`data/produtos.csv` e `js/produtos.js`) de novo no GitHub (passo 2.3)
 
-**Atenção:** os produtos que estão lá agora são só EXEMPLOS pra você ver o site funcionando. Troque todos pelos produtos reais da loja antes de divulgar o link pros clientes.
+**Sobre as categorias (abas):** os 451 produtos reais da loja foram importados da planilha de mercadorias, mas todos entraram numa categoria só, **"Todos os produtos"** — a planilha original não tinha a categoria de cada item preenchida. Quando tiver tempo, você pode reorganizar isso: edite a coluna `categoria` no `data/produtos.csv`, trocando "Todos os produtos" pela categoria certa de cada linha (ex: Jardinagem, Material elétrico, Bombas d'água, Tubos e conexões, Mangueiras, Piscina, Peças, Parafusos e ferragens — ou outras categorias que preferir), depois rode o script de novo (passo 5 acima).
 
 ---
 
