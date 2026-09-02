@@ -1,6 +1,6 @@
 /* ===========================================================
    Tela do catálogo: abas por categoria, cardápio de produtos
-   e o carrinho (orçamento).
+   e o carrinho (lista de itens pro vendedor montar o orçamento).
    =========================================================== */
 
 let categoriaAtiva = 0;
@@ -41,8 +41,6 @@ function renderizarProdutos() {
     item.innerHTML = `
       <div class="info">
         <h3>${produto.nome}</h3>
-        <div class="preco">${formatarMoeda(produto.preco)}</div>
-        <div class="unidade">preço por unidade</div>
       </div>
       <div class="seletor-qtd">
         ${qtd > 0 ? `<button class="remover-item">−</button><span class="qtd">${qtd}</span>` : ""}
@@ -51,7 +49,7 @@ function renderizarProdutos() {
     `;
 
     item.querySelector(".adicionar").addEventListener("click", () => {
-      adicionarAoCarrinho(produto.nome, produto.preco, grupo.categoria);
+      adicionarAoCarrinho(produto.nome, grupo.categoria);
       renderizarProdutos();
       atualizarBarraCarrinho();
     });
@@ -76,8 +74,7 @@ function atualizarBarraCarrinho() {
   if (totalItens > 0) {
     barra.classList.add("visivel");
     document.getElementById("resumo-carrinho").textContent =
-      totalItens + (totalItens === 1 ? " item" : " itens") + " no orçamento";
-    document.getElementById("resumo-total").textContent = formatarMoeda(totalValorCarrinho());
+      totalItens + (totalItens === 1 ? " item" : " itens") + " na lista";
   } else {
     barra.classList.remove("visivel");
   }
@@ -88,8 +85,7 @@ function renderizarPainelCarrinho() {
   const carrinho = obterCarrinho();
 
   if (carrinho.length === 0) {
-    container.innerHTML = '<p class="carrinho-vazio">Seu orçamento está vazio.<br>Adicione produtos no catálogo!</p>';
-    document.getElementById("total-painel-carrinho").textContent = formatarMoeda(0);
+    container.innerHTML = '<p class="carrinho-vazio">Sua lista está vazia.<br>Adicione produtos no catálogo!</p>';
     document.getElementById("botao-finalizar").disabled = true;
     return;
   }
@@ -103,7 +99,7 @@ function renderizarPainelCarrinho() {
     linha.innerHTML = `
       <div>
         <div class="nome">${item.nome}</div>
-        <div class="detalhe">${item.quantidade} x ${formatarMoeda(item.preco)} = ${formatarMoeda(item.quantidade * item.preco)}</div>
+        <div class="detalhe">${item.quantidade}x</div>
       </div>
       <button class="remover" title="Remover">🗑️</button>
     `;
@@ -115,8 +111,6 @@ function renderizarPainelCarrinho() {
     });
     container.appendChild(linha);
   });
-
-  document.getElementById("total-painel-carrinho").textContent = formatarMoeda(totalValorCarrinho());
 }
 
 function abrirPainelCarrinho() {
