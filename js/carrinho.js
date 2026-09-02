@@ -1,5 +1,5 @@
 /* ===========================================================
-   Carrinho de compras (orçamento).
+   Carrinho de compras (lista de produtos pro orçamento).
    Fica guardado em sessionStorage: some quando fecha a aba,
    assim cada visita começa com carrinho zerado.
    =========================================================== */
@@ -15,14 +15,14 @@ function salvarCarrinho(carrinho) {
   sessionStorage.setItem(CHAVE_CARRINHO, JSON.stringify(carrinho));
 }
 
-function adicionarAoCarrinho(nome, preco, categoria) {
+function adicionarAoCarrinho(nome, categoria) {
   const carrinho = obterCarrinho();
   const existente = carrinho.find((item) => item.nome === nome);
 
   if (existente) {
     existente.quantidade += 1;
   } else {
-    carrinho.push({ nome, preco, categoria, quantidade: 1 });
+    carrinho.push({ nome, categoria, quantidade: 1 });
   }
 
   salvarCarrinho(carrinho);
@@ -61,12 +61,4 @@ function quantidadeNoCarrinho(nome) {
 
 function totalItensCarrinho() {
   return obterCarrinho().reduce((soma, item) => soma + item.quantidade, 0);
-}
-
-function totalValorCarrinho() {
-  return obterCarrinho().reduce((soma, item) => soma + item.quantidade * item.preco, 0);
-}
-
-function formatarMoeda(valor) {
-  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
