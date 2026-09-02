@@ -20,31 +20,26 @@
 
 <div class="barra-carrinho" id="barra-carrinho">
   <span id="resumo-carrinho">0 itens</span>
-  <span id="resumo-total">R$ 0,00</span>
 </div>
 
 <div class="painel-carrinho" id="painel-carrinho">
   <div class="painel-carrinho-conteudo">
     <div id="painel-carrinho-corpo">
-      <h2>Seu orçamento</h2>
+      <h2>Sua lista</h2>
       <div id="itens-painel-carrinho"></div>
-      <div class="total-carrinho">
-        <span>Total</span>
-        <span id="total-painel-carrinho">R$ 0,00</span>
-      </div>
-      <button id="botao-finalizar" class="botao botao-primario botao-bloco">Finalizar pedido</button>
-      <button id="fechar-painel" class="botao botao-fantasma botao-bloco" style="margin-top:10px;">Continuar comprando</button>
+      <button id="botao-finalizar" class="botao botao-primario botao-bloco">Enviar lista pro vendedor</button>
+      <button id="fechar-painel" class="botao botao-fantasma botao-bloco" style="margin-top:10px;">Continuar escolhendo</button>
     </div>
 
     <div id="tela-sucesso" class="tela-sucesso" style="display:none;">
       <div class="icone">✅</div>
-      <h2>Pedido enviado!</h2>
+      <h2>Lista enviada!</h2>
       <p class="numero-pedido" id="texto-numero-pedido"></p>
       <p>Falta só um toque pra confirmar o envio no WhatsApp:</p>
       <div class="acoes-sucesso">
-        <button id="botao-whatsapp-admin" class="botao botao-whatsapp botao-bloco">💬 Enviar pedido pro vendedor</button>
+        <button id="botao-whatsapp-admin" class="botao botao-whatsapp botao-bloco">💬 Enviar lista pro vendedor</button>
         <button id="botao-whatsapp-cliente" class="botao botao-secundario botao-bloco">📩 Receber confirmação no meu WhatsApp</button>
-        <button id="botao-novo-pedido" class="botao botao-fantasma botao-bloco">Fazer novo orçamento</button>
+        <button id="botao-novo-pedido" class="botao botao-fantasma botao-bloco">Fazer nova lista</button>
       </div>
     </div>
   </div>
