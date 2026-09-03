@@ -15,34 +15,73 @@
 
 <main class="container">
   <div class="aviso">
-    💧 Preencha os dados da sua plantação e a gente te dá uma <strong>estimativa inicial</strong> de vazão, sistema e tubulação. É só um ponto de partida — um vendedor confirma os detalhes com você depois.
+    💧 Preencha os dados da sua plantação e a gente te dá uma <strong>estimativa inicial</strong> de vazão e tubulação. É só um ponto de partida — um vendedor confirma os detalhes com você depois.
   </div>
 
   <div class="cartao">
     <form id="form-simulacao">
       <div class="campo">
-        <label for="cultura">O que você vai plantar/irrigar?</label>
+        <label for="cultura">1. O que irá plantar?</label>
         <select id="cultura" required></select>
       </div>
 
       <div class="campo">
-        <label for="area">Área a ser irrigada (em m²)</label>
-        <input type="number" id="area" name="area" placeholder="Ex: 100" min="1" step="0.1" required>
+        <label for="tipo-irrigacao">2. Qual o tipo de irrigação desejada?</label>
+        <select id="tipo-irrigacao" required></select>
+      </div>
+
+      <div class="campo" id="campo-espacamento" style="display:none;">
+        <label for="espacamento">3. Qual o espaçamento das plantas?</label>
+        <select id="espacamento">
+          <option value="">Selecione...</option>
+          <option value="2x2">2m x 2m</option>
+          <option value="3x3">3m x 3m</option>
+          <option value="4x4">4m x 4m</option>
+          <option value="4x5">4m x 5m</option>
+          <option value="5x5">5m x 5m</option>
+          <option value="6x6">6m x 6m</option>
+        </select>
       </div>
 
       <div class="campo">
-        <label for="solo">Tipo de solo</label>
-        <select id="solo" required></select>
+        <label for="desnivel">4. Qual o desnível do terreno? (da bomba até o ponto mais alto, em metros)</label>
+        <input type="number" id="desnivel" name="desnivel" placeholder="Ex: 5" min="0" step="0.5" required>
       </div>
 
       <div class="campo">
-        <label for="declividade">Como é o terreno?</label>
-        <select id="declividade" required></select>
+        <label for="fonte-agua">5. Qual a fonte de água?</label>
+        <select id="fonte-agua" required>
+          <option value="">Selecione...</option>
+          <option value="Açude">Açude</option>
+          <option value="Cacimba">Cacimba</option>
+          <option value="Cisterna">Cisterna</option>
+          <option value="Poço">Poço</option>
+        </select>
       </div>
 
       <div class="campo">
-        <label for="horas">Quantas horas por dia você pretende irrigar?</label>
-        <input type="number" id="horas" name="horas" placeholder="Ex: 2" min="0.5" step="0.5" value="2" required>
+        <label for="distancia-fonte">6. Qual a distância da fonte de água até a irrigação? (em metros)</label>
+        <input type="number" id="distancia-fonte" name="distancia-fonte" placeholder="Ex: 30" min="0" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="comprimento">7. Qual o comprimento do terreno? (em metros)</label>
+        <input type="number" id="comprimento" name="comprimento" placeholder="Ex: 50" min="0.5" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="largura">8. Qual a largura do terreno? (em metros)</label>
+        <input type="number" id="largura" name="largura" placeholder="Ex: 20" min="0.5" step="0.5" required>
+      </div>
+
+      <div class="campo">
+        <label for="energia">9. Você tem energia?</label>
+        <select id="energia" required>
+          <option value="">Selecione...</option>
+          <option value="Trifásica">Trifásica</option>
+          <option value="Monofásica">Monofásica</option>
+          <option value="Não tenho">Não tenho</option>
+        </select>
       </div>
 
       <button type="submit" class="botao botao-primario botao-bloco">Calcular estimativa</button>
