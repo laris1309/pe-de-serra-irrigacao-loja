@@ -7,7 +7,7 @@ Manual de orientação escrito em linguagem simples, sem termos técnicos difíc
 Um site simples pra você colocar no WhatsApp, Instagram ou onde quiser, e o cliente:
 
 1. Preenche nome, sobrenome e WhatsApp
-2. Cai num menu com 6 opções: **Catálogo**, **Simulador de Irrigação**, **Bomba e Poço**, **Falar com Lucas**, **Falar com Erica** e **Manuais das Máquinas**
+2. Cai num menu com 6 opções: **Faça seu pedido aqui**, **Simulador de Irrigação**, **Bomba e Poço**, **Falar com Lucas**, **Falar com Erica** e **Manuais das Máquinas**
 3. No catálogo, monta uma **lista dos produtos que precisa** (sem preço — é só pra separar o que ele quer, tipo lista de compras)
 4. Ao finalizar, abre o WhatsApp já com a lista pronta pra vocês (só falta o cliente apertar "enviar") — daí é o vendedor que monta o orçamento com os valores, pelo próprio WhatsApp
 5. O cliente também recebe, no WhatsApp dele, uma confirmação da lista pronta pra enviar como comprovante
@@ -84,6 +84,8 @@ O catálogo **não mostra preço** — ele serve só pra o cliente montar a list
 6. Isso vai atualizar o arquivo `js/produtos.js` sozinho. Suba os dois arquivos (`data/produtos.csv` e `js/produtos.js`) de novo no GitHub (passo 2.3)
 
 **Sobre as categorias (abas):** os produtos reais da loja foram importados da planilha de mercadorias e organizados automaticamente por palavra-chave do nome em **12 categorias**: Bombas e Motobombas, Peças e Acessórios de Bomba, Tubos/Conexões/Registros, Válvulas, Mangueiras, Máquinas a Gasolina/Elétrica, Peças de Máquinas a Gasolina, Ferramentas Manuais e Acessórios, Material Elétrico, Jardim e EPI, Piscina, Parafusos e Fixação.
+
+**Busca e produto não encontrado:** na tela "Faça seu pedido aqui" tem uma caixa de busca no topo, que filtra por nome em todas as categorias de uma vez. Embaixo da lista de produtos também tem um campo pra o cliente digitar o nome de um produto que não está no catálogo e adicionar ele direto na lista, mesmo assim — útil pros itens que ficaram de fora da importação automática.
 
 Como a categorização foi automática (por palavra-chave no nome), **cerca de 72 produtos com nomes muito técnicos ficaram de fora do catálogo** (ex: códigos de peça que não davam pra reconhecer com segurança, tipo `INJETOR CARB ST FS85/HS80`). Se quiser adicionar algum desses de volta, é só incluir a linha no `data/produtos.csv` com a categoria certa e rodar o script de novo (passo 5 acima). Da mesma forma, se algum item ficou na categoria errada, é só corrigir a coluna `categoria` na linha dele.
 
