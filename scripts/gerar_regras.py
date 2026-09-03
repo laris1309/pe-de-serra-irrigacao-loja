@@ -6,20 +6,20 @@
 O QUE ESTE SCRIPT FAZ, EM PALAVRAS SIMPLES:
 
 O site tem um "Simulador de Dimensionamento de Irrigação": o cliente
-preenche dados da plantação dele (tipo de cultivo, área, solo,
-declividade, horas disponíveis por dia) e o site já calcula uma
-estimativa de vazão, sistema recomendado e diâmetro de tubulação.
+preenche dados da plantação dele (o que vai plantar, tipo de irrigação
+desejado, terreno etc.) e o site já calcula uma estimativa de vazão e
+diâmetro de tubulação.
 
 Esse cálculo usa 3 "planilhas" de regras que ficam em data/:
 
   1. data/regras_cultura.csv     -> quanto de água cada tipo de cultivo
-                                     costuma precisar por dia, e qual
-                                     sistema costuma ser recomendado.
+                                     costuma precisar por dia.
   2. data/faixas_vazao.csv       -> a partir de qual vazão (L/h) se
                                      recomenda cada diâmetro de cano.
-  3. data/fatores_ajuste.csv     -> o quanto o tipo de solo e a
-                                     declividade do terreno aumentam ou
-                                     diminuem a necessidade de água.
+  3. data/fatores_ajuste.csv     -> o quanto cada tipo de irrigação
+                                     (aspersão, gotejamento, microaspersão)
+                                     aumenta ou diminui a necessidade de
+                                     água por conta da eficiência dele.
 
 IMPORTANTE: os valores que vêm nesses arquivos são só EXEMPLOS, pra
 o simulador já funcionar de ponta a ponta. Antes de divulgar o site
@@ -75,7 +75,7 @@ def ler_csv(caminho, colunas_esperadas):
 
 
 def montar_regras_cultura():
-    linhas = ler_csv(CAMINHO_REGRAS_CULTURA, {"cultura", "necessidade_hidrica_mm_dia", "sistema_recomendado", "observacao"})
+    linhas = ler_csv(CAMINHO_REGRAS_CULTURA, {"cultura", "necessidade_hidrica_mm_dia", "observacao"})
     regras = []
     for numero, linha in enumerate(linhas, start=2):
         cultura = (linha.get("cultura") or "").strip()
@@ -84,7 +84,6 @@ def montar_regras_cultura():
         regras.append({
             "cultura": cultura,
             "necessidadeHidricaMmDia": converter_numero(linha["necessidade_hidrica_mm_dia"], "necessidade_hidrica_mm_dia", numero, "regras_cultura.csv"),
-            "sistemaRecomendado": (linha.get("sistema_recomendado") or "").strip(),
             "observacao": (linha.get("observacao") or "").strip()
         })
     return regras
