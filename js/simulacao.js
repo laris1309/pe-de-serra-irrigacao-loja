@@ -103,7 +103,7 @@ function calcularSimulacao(dados) {
 function montarMensagemSimulacaoWhatsapp(cliente, dados, resultado) {
   return (
     `Olá! Fiz uma simulação de irrigação no site e gostaria de validar com vocês:\n\n` +
-    `Cliente: ${cliente.nome} ${cliente.sobrenome}\n` +
+    `Cliente: ${cliente.nome}\n` +
     `1. O que vai plantar: ${dados.cultura}\n` +
     `2. Tipo de irrigação desejada: ${dados.tipoIrrigacao}\n` +
     (dados.espacamento ? `3. Espaçamento das plantas: ${dados.espacamento.replace("x", "m x ")}m\n` : "") +
