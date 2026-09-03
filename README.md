@@ -6,7 +6,7 @@ Manual de orientação escrito em linguagem simples, sem termos técnicos difíc
 
 Um site simples pra você colocar no WhatsApp, Instagram ou onde quiser, e o cliente:
 
-1. Preenche nome, sobrenome e WhatsApp
+1. Preenche nome e sobrenome (num campo só), WhatsApp e, se quiser, data de nascimento
 2. Cai num menu com 6 opções: **Faça seu pedido aqui**, **Simulador de Irrigação**, **Bomba e Poço**, **Falar com Lucas**, **Falar com Erica** e **Manuais das Máquinas**
 3. No catálogo, monta uma **lista dos produtos que precisa** (sem preço — é só pra separar o que ele quer, tipo lista de compras)
 4. Ao finalizar, abre o WhatsApp já com a lista pronta pra vocês (só falta o cliente apertar "enviar") — daí é o vendedor que monta o orçamento com os valores, pelo próprio WhatsApp
