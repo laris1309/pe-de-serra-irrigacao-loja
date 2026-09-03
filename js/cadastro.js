@@ -1,5 +1,6 @@
 /* ===========================================================
-   Cadastro simples do cliente: nome, sobrenome e WhatsApp.
+   Cadastro simples do cliente: nome e sobrenome (num campo só),
+   WhatsApp e data de nascimento (opcional).
    Fica guardado no navegador (localStorage) para não pedir
    de novo toda vez que a pessoa visitar o site.
    =========================================================== */
@@ -28,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     evento.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
-    const sobrenome = document.getElementById("sobrenome").value.trim();
     const whatsappBruto = document.getElementById("whatsapp").value.trim();
     const whatsapp = limparNumeroWhatsapp(whatsappBruto);
+    const nascimento = document.getElementById("nascimento").value; // opcional
 
     let valido = true;
 
@@ -39,13 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
       valido = false;
     } else {
       marcarInvalido("nome", false);
-    }
-
-    if (sobrenome.length < 2) {
-      marcarInvalido("sobrenome", true);
-      valido = false;
-    } else {
-      marcarInvalido("sobrenome", false);
     }
 
     // Espera algo como DDD + número = pelo menos 10 dígitos (com ou sem o 55 na frente)
@@ -67,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cliente = {
       nome: nome,
-      sobrenome: sobrenome,
       whatsapp: whatsappCompleto,
+      nascimento: nascimento || null,
       cadastradoEm: new Date().toISOString()
     };
 
