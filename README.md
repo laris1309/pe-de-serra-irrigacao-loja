@@ -93,25 +93,39 @@ Como a categorização foi automática (por palavra-chave no nome), **cerca de 7
 
 ## Passo 3.5 — Simulador de Dimensionamento de Irrigação
 
-O site tem uma página (`simulacao.html`) onde o cliente preenche os dados da plantação dele — cultura, área, tipo de solo, declividade do terreno e quantas horas por dia pretende irrigar — e recebe na hora uma **estimativa** de vazão, sistema recomendado e diâmetro de tubulação.
+O site tem uma página (`simulacao.html`) onde o cliente responde 9 perguntas sobre a plantação e o terreno dele, e recebe na hora uma **estimativa** de vazão e diâmetro de tubulação:
 
-**Muito importante:** os números que vêm configurados agora (quanto de água cada cultura precisa por dia, a partir de qual vazão usar cada diâmetro de cano, o quanto o solo/declividade influenciam) são **exemplos de referência**, só pra o simulador já funcionar. Antes de divulgar essa página pros clientes, peça pra alguém com conhecimento técnico de irrigação (vocês mesmos, um engenheiro agrônomo ou técnico de confiança) revisar esses valores. Por isso o resultado sempre aparece com um aviso e um botão pra o cliente confirmar com um vendedor pelo WhatsApp — o simulador é um "pontapé inicial" pro atendimento, não substitui a avaliação técnica.
+1. O que irá plantar (Milho, Hortaliças, Capim, Frutas, Grama/Jardim)
+2. Tipo de irrigação desejada (aspersão convencional, gotejamento por fita, gotejamento por gotejadores, microaspersão "bailarina", microaspersão "micrão")
+3. Espaçamento das plantas (só aparece quando a resposta da pergunta 1 for "Frutas")
+4. Desnível do terreno (da bomba até o ponto mais alto)
+5. Fonte de água (açude, cacimba, cisterna, poço)
+6. Distância da fonte de água até a irrigação
+7. Comprimento do terreno
+8. Largura do terreno
+9. Energia disponível (trifásica, monofásica ou não tem)
+
+**Importante entender o que o site calcula e o que ele só recolhe:** as perguntas 1, 2, 3, 7 e 8 entram direto na conta de vazão e tubulação (área = comprimento × largura). Já as perguntas 4, 5, 6 e 9 (desnível, fonte de água, distância, energia) **não entram nessa conta** — elas são justamente os dados que a calculadora "Bomba e Poço" (`dimensionamento-poco.html`) usa pra dimensionar a bomba. Por isso o resultado do simulador tem um botão que já leva pra essa outra calculadora, e a mensagem de WhatsApp manda todos os 9 dados juntos pro vendedor.
+
+**Muito importante:** os números que vêm configurados agora (quanto de água cada cultura precisa por dia, a partir de qual vazão usar cada diâmetro de cano, o quanto cada tipo de irrigação influencia) são **exemplos de referência**, só pra o simulador já funcionar. Antes de divulgar essa página pros clientes, peça pra alguém com conhecimento técnico de irrigação (vocês mesmos, um engenheiro agrônomo ou técnico de confiança) revisar esses valores. Por isso o resultado sempre aparece com um aviso e um botão pra o cliente confirmar com um vendedor pelo WhatsApp — o simulador é um "pontapé inicial" pro atendimento, não substitui a avaliação técnica.
 
 ### Como editar as regras do simulador
 
 Assim como o catálogo, as regras ficam em arquivos CSV dentro de `data/`, e você só precisa editar planilhas — sem mexer em código.
 
-1. **`data/regras_cultura.csv`** — quanto de água (em mm por dia) cada tipo de cultivo costuma precisar, e qual sistema (gotejamento, aspersão, microaspersão) costuma ser indicado.
+1. **`data/regras_cultura.csv`** — quanto de água (em mm por dia) cada cultura (Milho, Hortaliças, Capim, Frutas, Grama/Jardim) costuma precisar.
 2. **`data/faixas_vazao.csv`** — a partir de qual vazão (em litros por hora) se indica cada diâmetro de tubulação (em mm). A última linha (vazão muito alta) sempre aponta pra "fale com um vendedor", pra sistemas grandes que precisam de projeto técnico de verdade.
-3. **`data/fatores_ajuste.csv`** — o quanto o tipo de solo (arenoso, argiloso, misto) e a declividade do terreno (plano, levemente inclinado, inclinado) aumentam ou diminuem a necessidade de água.
+3. **`data/fatores_ajuste.csv`** — o quanto cada tipo de irrigação (aspersão convencional, gotejamento por fita, gotejamento por gotejadores, microaspersão "bailarina", microaspersão "micrão") aumenta ou diminui a necessidade de água por causa da eficiência do sistema (aspersão perde mais água por evaporação, por exemplo).
 
-Depois de editar qualquer um desses arquivos, rode:
+Se quiser mudar as opções de espaçamento das plantas (hoje: 2x2, 3x3, 4x4, 4x5, 5x5, 6x6), as opções de fonte de água ou as opções de energia, é preciso editar direto no arquivo `simulacao.html` (procure pelas tags `<select>` correspondentes) — essas listas são curtas e fixas, por isso não viraram planilha.
+
+Depois de editar os arquivos CSV, rode:
 ```
 python3 scripts/gerar_regras.py
 ```
 Isso atualiza o arquivo `js/regras.js` sozinho — suba os arquivos alterados de novo no GitHub (passo 2.3).
 
-**Como o cálculo funciona por trás:** volume diário de água (litros) = área (m²) × necessidade da cultura (mm/dia) já ajustada pelo solo e pela declividade. A vazão (L/h) é esse volume dividido pelas horas de irrigação disponíveis por dia. É a conta padrão usada em dimensionamento de irrigação — o que muda com o tempo são os números de cada regra, e esses vocês ajustam direto no CSV.
+**Como o cálculo funciona por trás:** área (m²) = comprimento × largura do terreno. Volume diário de água (litros) = área × necessidade da cultura (mm/dia) já ajustada pelo tipo de irrigação escolhido. A vazão (L/h) é esse volume dividido por um número fixo de horas de irrigação por dia (hoje, 4h — ajustável direto no arquivo `js/simulacao.js`, na constante `HORAS_IRRIGACAO_PADRAO`, já que essa pergunta não está no formulário). Pra culturas frutíferas, o site também estima o número de plantas dividindo a área pelo espaçamento escolhido.
 
 ---
 
