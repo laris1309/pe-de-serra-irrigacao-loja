@@ -3,19 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo - Pé de Serra Irrigação</title>
+<title>Faça seu pedido aqui - Pé de Serra Irrigação</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="topo">
   <a href="menu.html" class="voltar">←</a>
-  <h1>Catálogo e Orçamento</h1>
+  <h1>Faça seu pedido aqui</h1>
 </header>
 
 <main class="container">
+  <div class="barra-busca">
+    <input type="text" id="busca-produto" placeholder="🔎 Buscar produto pelo nome...">
+  </div>
   <div class="abas" id="abas"></div>
   <div class="lista-produtos" id="lista-produtos"></div>
+
+  <div class="produto-nao-encontrado">
+    <h3>Não achou o que precisa?</h3>
+    <p>Digite o nome do produto e adicione direto na sua lista.</p>
+    <div class="form-produto-manual">
+      <input type="text" id="nome-produto-manual" placeholder="Nome do produto">
+      <button id="botao-adicionar-manual" class="botao botao-secundario">Adicionar</button>
+    </div>
+  </div>
 </main>
 
 <div class="barra-carrinho" id="barra-carrinho">
