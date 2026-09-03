@@ -89,7 +89,7 @@ function montarMensagemPocoWhatsapp(cliente, dados, resultado) {
 
   return (
     `Olá! Fiz uma simulação de dimensionamento de bomba/poço no site e gostaria de validar com vocês:\n\n` +
-    `Cliente: ${cliente.nome} ${cliente.sobrenome}\n` +
+    `Cliente: ${cliente.nome}\n` +
     `Vazão desejada: ${dados.vazaoLh} L/h\n` +
     `Profundidade / nível dinâmico: ${dados.profundidadeSuccao} m\n` +
     `Altura de recalque: ${dados.alturaRecalque} m\n` +
