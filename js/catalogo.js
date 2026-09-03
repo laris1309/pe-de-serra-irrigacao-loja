@@ -4,6 +4,13 @@
    =========================================================== */
 
 let categoriaAtiva = 0;
+let termoBusca = "";
+
+function todosOsProdutos() {
+  return CATALOGO.flatMap((grupo) =>
+    grupo.itens.map((produto) => ({ nome: produto.nome, categoria: grupo.categoria }))
+  );
+}
 
 function renderizarAbas() {
   const container = document.getElementById("abas");
@@ -11,10 +18,12 @@ function renderizarAbas() {
 
   CATALOGO.forEach((grupo, indice) => {
     const botao = document.createElement("button");
-    botao.className = "aba-botao" + (indice === categoriaAtiva ? " ativa" : "");
+    botao.className = "aba-botao" + (indice === categoriaAtiva && !termoBusca.trim() ? " ativa" : "");
     botao.textContent = grupo.categoria;
     botao.addEventListener("click", () => {
       categoriaAtiva = indice;
+      termoBusca = "";
+      document.getElementById("busca-produto").value = "";
       renderizarAbas();
       renderizarProdutos();
     });
@@ -26,14 +35,31 @@ function renderizarProdutos() {
   const lista = document.getElementById("lista-produtos");
   lista.innerHTML = "";
 
-  const grupo = CATALOGO[categoriaAtiva];
+  const busca = termoBusca.trim();
+  let itens;
 
-  if (!grupo || grupo.itens.length === 0) {
-    lista.innerHTML = '<p class="carrinho-vazio">Nenhum produto cadastrado nessa categoria ainda.</p>';
-    return;
+  if (busca) {
+    const termo = busca.toLowerCase();
+    itens = todosOsProdutos().filter((produto) => produto.nome.toLowerCase().includes(termo));
+
+    const aviso = document.createElement("p");
+    aviso.className = "resultado-busca-info";
+    aviso.textContent =
+      itens.length === 0
+        ? `Nenhum produto encontrado para "${busca}".`
+        : `${itens.length} resultado${itens.length === 1 ? "" : "s"} para "${busca}"`;
+    lista.appendChild(aviso);
+  } else {
+    const grupo = CATALOGO[categoriaAtiva];
+    itens = grupo ? grupo.itens.map((produto) => ({ nome: produto.nome, categoria: grupo.categoria })) : [];
+
+    if (itens.length === 0) {
+      lista.innerHTML += '<p class="carrinho-vazio">Nenhum produto cadastrado nessa categoria ainda.</p>';
+      return;
+    }
   }
 
-  grupo.itens.forEach((produto) => {
+  itens.forEach((produto) => {
     const qtd = quantidadeNoCarrinho(produto.nome);
 
     const item = document.createElement("div");
@@ -49,7 +75,7 @@ function renderizarProdutos() {
     `;
 
     item.querySelector(".adicionar").addEventListener("click", () => {
-      adicionarAoCarrinho(produto.nome, grupo.categoria);
+      adicionarAoCarrinho(produto.nome, produto.categoria);
       renderizarProdutos();
       atualizarBarraCarrinho();
     });
@@ -65,6 +91,16 @@ function renderizarProdutos() {
 
     lista.appendChild(item);
   });
+}
+
+function adicionarProdutoManual() {
+  const campo = document.getElementById("nome-produto-manual");
+  const nome = campo.value.trim();
+  if (!nome) return;
+
+  adicionarAoCarrinho(nome, "Produto não catalogado");
+  campo.value = "";
+  atualizarBarraCarrinho();
 }
 
 function atualizarBarraCarrinho() {
@@ -143,6 +179,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("barra-carrinho").addEventListener("click", abrirPainelCarrinho);
   document.getElementById("fechar-painel").addEventListener("click", fecharPainelCarrinho);
+
+  document.getElementById("busca-produto").addEventListener("input", function (evento) {
+    termoBusca = evento.target.value;
+    renderizarAbas();
+    renderizarProdutos();
+  });
+
+  document.getElementById("botao-adicionar-manual").addEventListener("click", adicionarProdutoManual);
+  document.getElementById("nome-produto-manual").addEventListener("keydown", function (evento) {
+    if (evento.key === "Enter") {
+      evento.preventDefault();
+      adicionarProdutoManual();
+    }
+  });
 
   document.getElementById("botao-finalizar").addEventListener("click", function () {
     const cliente = obterCliente();
