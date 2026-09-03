@@ -44,7 +44,7 @@ function montarListaItensTexto(carrinho) {
 function montarMensagemAdmin({ numeroPedido, cliente, dataHora, itensTexto }) {
   return (
     `Número da solicitação: ${numeroPedido}\n` +
-    `Nome do cliente: ${cliente.nome} ${cliente.sobrenome}\n` +
+    `Nome do cliente: ${cliente.nome}\n` +
     `Contato do cliente: ${cliente.whatsapp}\n` +
     `Data e hora: ${dataHora}\n` +
     `Produtos solicitados:\n${itensTexto}`
