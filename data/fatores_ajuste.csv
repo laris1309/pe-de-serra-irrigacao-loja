@@ -1,7 +1,6 @@
 tipo,valor,fator,observacao
-solo,Arenoso,1.15,"Retém menos água, aumenta a necessidade (EXEMPLO - validar com equipe técnica)"
-solo,Argiloso,0.90,"Retém mais água, reduz a necessidade (EXEMPLO - validar com equipe técnica)"
-solo,Misto,1.00,"Padrão (EXEMPLO - validar com equipe técnica)"
-declividade,Plano,1.00,"Padrão, sem perda relevante (EXEMPLO - validar com equipe técnica)"
-declividade,Levemente inclinado,1.10,"Alguma perda por escoamento (EXEMPLO - validar com equipe técnica)"
-declividade,Inclinado,1.20,"Maior perda por escoamento (EXEMPLO - validar com equipe técnica)"
+irrigacao,Aspersão convencional,1.20,"Maior perda por evaporação e vento (EXEMPLO - validar com equipe técnica)"
+irrigacao,Gotejamento por fita de gotejamento,0.90,"Sistema eficiente, baixa perda por evaporação (EXEMPLO - validar com equipe técnica)"
+irrigacao,Gotejamento por gotejadores,0.85,"Aplicação bem localizada, sistema muito eficiente (EXEMPLO - validar com equipe técnica)"
+irrigacao,"Microaspersão ""bailarina""",1.00,"Eficiência intermediária (EXEMPLO - validar com equipe técnica)"
+irrigacao,"Microaspersão ""micrão""",1.00,"Eficiência intermediária, maior alcance (EXEMPLO - validar com equipe técnica)"
