@@ -1,7 +1,6 @@
-cultura,necessidade_hidrica_mm_dia,sistema_recomendado,observacao
-"Hortaliças (folhosas: alface, couve, rúcula)",5,Gotejamento,"Regas frequentes e leves, evitar molhar as folhas (EXEMPLO - validar com equipe técnica)"
-"Hortaliças (frutos: tomate, pimentão, pepino)",6,Gotejamento,"Precisa de regularidade na umidade do solo (EXEMPLO - validar com equipe técnica)"
-Fruticultura (árvores frutíferas/pomar),7,Microaspersão,"Cobertura maior de área por planta (EXEMPLO - validar com equipe técnica)"
-Grama e jardim,5,Aspersão,"Gramados e áreas ornamentais grandes (EXEMPLO - validar com equipe técnica)"
-Horta em vaso ou pequena escala,4,Gotejamento,"Vasos, canteiros e hortas pequenas (EXEMPLO - validar com equipe técnica)"
-Plantas ornamentais e paisagismo,4,Microaspersão,"Jardins ornamentais e paisagismo (EXEMPLO - validar com equipe técnica)"
+cultura,necessidade_hidrica_mm_dia,observacao
+Milho,5,"Fase vegetativa e enchimento de grão são as mais exigentes em água (EXEMPLO - validar com equipe técnica)"
+Hortaliças,5.5,"Regas frequentes e leves, regularidade na umidade do solo (EXEMPLO - validar com equipe técnica)"
+Capim,6,"Pastagem irrigada, alta demanda em período seco (EXEMPLO - validar com equipe técnica)"
+Frutas,7,"Árvores frutíferas, cobertura maior por planta (EXEMPLO - validar com equipe técnica)"
+Grama/Jardim,5,"Áreas ornamentais e gramados (EXEMPLO - validar com equipe técnica)"
