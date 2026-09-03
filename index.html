@@ -16,21 +16,20 @@
 
     <form id="form-cadastro" novalidate>
       <div class="campo">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Ex: Maria" autocomplete="given-name">
-        <span class="erro-texto">Digite seu nome</span>
-      </div>
-
-      <div class="campo">
-        <label for="sobrenome">Sobrenome</label>
-        <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Souza" autocomplete="family-name">
-        <span class="erro-texto">Digite seu sobrenome</span>
+        <label for="nome">Nome e sobrenome</label>
+        <input type="text" id="nome" name="nome" placeholder="Ex: Maria Souza" autocomplete="name">
+        <span class="erro-texto">Digite seu nome e sobrenome</span>
       </div>
 
       <div class="campo">
         <label for="whatsapp">WhatsApp (com DDD)</label>
         <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: (85) 99999-9999" inputmode="numeric" autocomplete="tel">
         <span class="erro-texto">Digite um WhatsApp válido, com DDD</span>
+      </div>
+
+      <div class="campo">
+        <label for="nascimento">Data de nascimento (opcional)</label>
+        <input type="date" id="nascimento" name="nascimento" autocomplete="bday">
       </div>
 
       <button type="submit" class="botao botao-primario botao-bloco">Entrar</button>
