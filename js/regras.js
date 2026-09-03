@@ -11,40 +11,29 @@
 
 const REGRAS_CULTURA = [
   {
-    "cultura": "Hortaliças (folhosas: alface, couve, rúcula)",
+    "cultura": "Milho",
     "necessidadeHidricaMmDia": 5,
-    "sistemaRecomendado": "Gotejamento",
-    "observacao": "Regas frequentes e leves, evitar molhar as folhas (EXEMPLO - validar com equipe técnica)"
+    "observacao": "Fase vegetativa e enchimento de grão são as mais exigentes em água (EXEMPLO - validar com equipe técnica)"
   },
   {
-    "cultura": "Hortaliças (frutos: tomate, pimentão, pepino)",
+    "cultura": "Hortaliças",
+    "necessidadeHidricaMmDia": 5.5,
+    "observacao": "Regas frequentes e leves, regularidade na umidade do solo (EXEMPLO - validar com equipe técnica)"
+  },
+  {
+    "cultura": "Capim",
     "necessidadeHidricaMmDia": 6,
-    "sistemaRecomendado": "Gotejamento",
-    "observacao": "Precisa de regularidade na umidade do solo (EXEMPLO - validar com equipe técnica)"
+    "observacao": "Pastagem irrigada, alta demanda em período seco (EXEMPLO - validar com equipe técnica)"
   },
   {
-    "cultura": "Fruticultura (árvores frutíferas/pomar)",
+    "cultura": "Frutas",
     "necessidadeHidricaMmDia": 7,
-    "sistemaRecomendado": "Microaspersão",
-    "observacao": "Cobertura maior de área por planta (EXEMPLO - validar com equipe técnica)"
+    "observacao": "Árvores frutíferas, cobertura maior por planta (EXEMPLO - validar com equipe técnica)"
   },
   {
-    "cultura": "Grama e jardim",
+    "cultura": "Grama/Jardim",
     "necessidadeHidricaMmDia": 5,
-    "sistemaRecomendado": "Aspersão",
-    "observacao": "Gramados e áreas ornamentais grandes (EXEMPLO - validar com equipe técnica)"
-  },
-  {
-    "cultura": "Horta em vaso ou pequena escala",
-    "necessidadeHidricaMmDia": 4,
-    "sistemaRecomendado": "Gotejamento",
-    "observacao": "Vasos, canteiros e hortas pequenas (EXEMPLO - validar com equipe técnica)"
-  },
-  {
-    "cultura": "Plantas ornamentais e paisagismo",
-    "necessidadeHidricaMmDia": 4,
-    "sistemaRecomendado": "Microaspersão",
-    "observacao": "Jardins ornamentais e paisagismo (EXEMPLO - validar com equipe técnica)"
+    "observacao": "Áreas ornamentais e gramados (EXEMPLO - validar com equipe técnica)"
   }
 ];
 
@@ -82,32 +71,26 @@ const FAIXAS_VAZAO = [
 ];
 
 const FATORES_AJUSTE = {
-  "solo": {
-    "Arenoso": {
-      "fator": 1.15,
-      "observacao": "Retém menos água, aumenta a necessidade (EXEMPLO - validar com equipe técnica)"
-    },
-    "Argiloso": {
-      "fator": 0.9,
-      "observacao": "Retém mais água, reduz a necessidade (EXEMPLO - validar com equipe técnica)"
-    },
-    "Misto": {
-      "fator": 1,
-      "observacao": "Padrão (EXEMPLO - validar com equipe técnica)"
-    }
-  },
-  "declividade": {
-    "Plano": {
-      "fator": 1,
-      "observacao": "Padrão, sem perda relevante (EXEMPLO - validar com equipe técnica)"
-    },
-    "Levemente inclinado": {
-      "fator": 1.1,
-      "observacao": "Alguma perda por escoamento (EXEMPLO - validar com equipe técnica)"
-    },
-    "Inclinado": {
+  "irrigacao": {
+    "Aspersão convencional": {
       "fator": 1.2,
-      "observacao": "Maior perda por escoamento (EXEMPLO - validar com equipe técnica)"
+      "observacao": "Maior perda por evaporação e vento (EXEMPLO - validar com equipe técnica)"
+    },
+    "Gotejamento por fita de gotejamento": {
+      "fator": 0.9,
+      "observacao": "Sistema eficiente, baixa perda por evaporação (EXEMPLO - validar com equipe técnica)"
+    },
+    "Gotejamento por gotejadores": {
+      "fator": 0.85,
+      "observacao": "Aplicação bem localizada, sistema muito eficiente (EXEMPLO - validar com equipe técnica)"
+    },
+    "Microaspersão \"bailarina\"": {
+      "fator": 1,
+      "observacao": "Eficiência intermediária (EXEMPLO - validar com equipe técnica)"
+    },
+    "Microaspersão \"micrão\"": {
+      "fator": 1,
+      "observacao": "Eficiência intermediária, maior alcance (EXEMPLO - validar com equipe técnica)"
     }
   }
 };
